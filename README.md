@@ -8,7 +8,7 @@
 
 The goal of QuantileModels is to provide the proper tools for the estimation and inference of different quantile models, at the moment only Conditional autoregressive value at risk (CAViaR) model proposed by Engle & Manganelli (2004) <https://doi.org/10.1198/073500104000000370> and it’s multivariate extension MVMQ-CAViaR proposed y White et al. (2015) <https://doi.org/10.1016/j.jeconom.2015.02.004> are avalible, however, in further updates, other models and extensions will be included.
 
-## Installation (Esto es una mierda)
+## Installation
 
 You can install the development version of QuantileModels like so:
 
@@ -159,12 +159,6 @@ legend("topleft",legend = c("Daily Returns","1% VaR"),col = 2:1,pch = c("o","-")
 
 # References
 
-::::: {#refs .references .csl-bib-body .hanging-indent entry-spacing="0"}
-::: {#ref-engle2004 .csl-entry}
 Engle, Robert F, and Simone Manganelli. 2004. “CAViaR.” *Journal of Business & Economic Statistics* 22 (4): 367–81. <https://doi.org/10.1198/073500104000000370>.
-:::
 
-::: {#ref-white2015 .csl-entry}
 White, Halbert, Tae-Hwan Kim, and Simone Manganelli. 2015. “VAR for VaR: Measuring Tail Dependence Using Multivariate Regression Quantiles.” *Journal of Econometrics* 187 (1): 169–88. <https://doi.org/10.1016/j.jeconom.2015.02.004>.
-:::
-:::::
