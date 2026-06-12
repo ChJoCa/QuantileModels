@@ -1,0 +1,78 @@
+---
+output: github_document
+bibliography: references.bib
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# QuantileModels
+
+<!-- badges: start -->
+
+<!-- badges: end -->
+
+The goal of QuantileModels is to provide the proper tools for the estimation and inference of different quantile models, at the moment only Conditional autoregressive value at risk (CAViaR) model proposed by Engle & Manganelli (2004) <https://doi.org/10.1198/073500104000000370> and it's multivariate extension MVMQ-CAViaR proposed y White et al. (2015) <https://doi.org/10.1016/j.jeconom.2015.02.004> are avalible, however, in further updates, other models and extensions will be included.
+
+## Installation
+
+You can install the development version of QuantileModels like so:
+
+``` r
+library(remotes)
+install_github("ChJoCa/QuantileModels")
+```
+
+## Example
+
+Here there are some examples to the estimation of the models implemented by now.
+
+The first is the Symmetric absolute value and the Asymmetric Slope models from @engle2004. Of course, there are other spcifications, and all can be estimated for a given order of p autoregressive quantile and q order of lagged Y values.
+
+```{r example, fig.height=3.5}
+library(QuantileModels)
+
+data=dataCAViaR
+
+SAV <- CAViaR(Y=data$GM[1:2892],
+model.type = "SAV",p=1,q=1,band.hs = TRUE,quant.type = 7,
+tau=0.05,refine.estim = FALSE)
+
+summary(SAV)
+
+AS <- CAViaR(Y=data$GM[1:2892],
+model.type = "AS",p=1,q=1,band.hs = TRUE,quant.type = 7,
+tau=0.05,refine.estim = FALSE)
+
+summary(AS)
+
+par(mfrow=c(1,2))
+
+plot(-SAV$VaR,.by="quarter",ylim=c(1.5,10),main="SAV",main.timespan=FALSE)
+plot(-AS$VaR,.by="quarter",ylim=c(1.5,10),main="AS",main.timespan=FALSE)
+```
+
+The other model is it's multivariate version proposed by @white2015
+
+```{r}
+Barclays <- MVMQ_CAViaR(MVMQ[,c(6,1)],tau =c(0.01,0.01),band.hs = TRUE)
+
+summary(Barclays)
+
+dates <- as.Date(zoo::index(MVMQ))
+
+plot(dates,as.vector(MVMQ[,1]),type = "p",ylim = c(-60,60),cex=0.6,xaxt="n",cex.axis=0.8,col=2,xlab="",ylab = "",main = "Barclays")
+lines(dates,Barclays[[5]][,2],type = "l")
+axis.Date(side=1,at=seq(dates[1],dates[2765],by="year"),cex.axis=0.8,las=2)
+legend("topleft",legend = c("Daily Returns","1% VaR"),col = 2:1,pch = c("o","-"))
+```
+
+# References

@@ -1,0 +1,29 @@
+Package: QuantileModels
+Title: Estimation of Different Quantile Related Models
+Version: 1.0.0
+Authors@R: 
+    person("Christian", "Jorge Carreiro", , "christian.jorge.carreiro@usc.es", role = c("aut", "cre", "cph"))
+Description: Estimation of different quantile models, at the moment only Conditional autoregressive value at risk (CAViaR) model and it's multivariate extension MVMQ-CAViaR are available, however, in further updates, other models and extensions will be included.
+License: GPL (>= 3)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+LinkingTo: 
+    Rcpp,
+    RcppArmadillo
+Imports: 
+    Rcpp,
+    nloptr,
+    quantreg,
+    numDeriv,
+    xts,
+    zoo,
+    ufRisk,
+    GenSA
+Suggests: 
+    knitr,
+    rmarkdown,
+VignetteBuilder: knitr
+Depends: 
+    R (>= 3.5)
+LazyData: true
+Config/roxygen2/version: 8.0.0
