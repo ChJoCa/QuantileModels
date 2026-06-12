@@ -158,13 +158,6 @@ legend("topleft",legend = c("Daily Returns","1% VaR"),col = 2:1,pch = c("o","-")
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%"/>
 
 # References
-
-::::: {#refs .references .csl-bib-body .hanging-indent entry-spacing="0"}
-::: {#ref-engle2004 .csl-entry}
 Engle, Robert F, and Simone Manganelli. 2004. “CAViaR.” *Journal of Business & Economic Statistics* 22 (4): 367–81. <https://doi.org/10.1198/073500104000000370>.
-:::
 
-::: {#ref-white2015 .csl-entry}
 White, Halbert, Tae-Hwan Kim, and Simone Manganelli. 2015. “VAR for VaR: Measuring Tail Dependence Using Multivariate Regression Quantiles.” *Journal of Econometrics* 187 (1): 169–88. <https://doi.org/10.1016/j.jeconom.2015.02.004>.
-:::
-:::::
