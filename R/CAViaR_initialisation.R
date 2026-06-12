@@ -1,6 +1,6 @@
 
 
-#' Univariate caviar for MVMQ-CAViaR initialisation
+#' Univariate caviar for MVMQ-CAViaR initialisation jiji
 #' @noRd
 
 CAViaR_init <- function(Y,p=1,q=1,tau=0.05,quant.type=7,optim.config=list()){
