@@ -97,7 +97,7 @@ The following table shows the results of the estimation for the various specific
 
 1.  Engle & Manganelli (2004) use an "exact formula" to calculate the gradient (Jacobian) of the quantile process function, which is obviously preferable. However, in this specific function, these are calculated using numerical approximations with central finite differences via *numDeriv* (Gilbert & Varadhan, 2019).
 
-2.  In the original work, the bandwidth is calculated using k-nearest neighbours. However, in this implementation, it is calculated based on the multivariate posterior proposal [@white2015], whereas they use the one proposed by @machado2013.
+2.  In the original work, the bandwidth is calculated using k-nearest neighbors. However, in this implementation, it is calculated based on the multivariate posterior proposal [@white2015], whereas they use the one proposed by @machado2013.
 
 |              |    SAV     |     AS     |  INDGARCH  |   I-CAV    |
 |:------------:|:----------:|:----------:|:----------:|:----------:|
@@ -139,7 +139,7 @@ Note that in this R package, the adaptive specification is not implemented; ther
 
 !["Estimated CAViaR Plots for GM: (a) Symmetric Absolute Value; (b) Asymmetric Slope; (c) GARCH; (d) Adaptive". Source: Engle & Manganelli (2004)](images/clipboard-2252157615.png)
 
-Furthermore, you can use the S3 plot() method for the object returned by the CAViaR() function to visualise the result graphically.
+Furthermore, you can use the S3 plot() method for the object returned by the CAViaR() function to visualize the result graphically.
 
 ```{r, fig.width=6, fig.height=6}
 plot(SAV,titl="GM Var at 5%")

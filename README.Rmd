@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: end -->
 
-The goal of QuantileModels is to provide the proper tools for the estimation and inference of different quantile models, at the moment only Conditional autoregressive value at risk (CAViaR) model proposed by Engle & Manganelli (2004) <https://doi.org/10.1198/073500104000000370> and it's multivariate extension MVMQ-CAViaR proposed y White et al. (2015) <https://doi.org/10.1016/j.jeconom.2015.02.004> are avalible, however, in further updates, other models and extensions will be included.
+The goal of QuantileModels is to provide the proper tools for the estimation and inference of different quantile models, at the moment only Conditional autoregressive value at risk (CAViaR) model proposed by Engle & Manganelli (2004) <https://doi.org/10.1198/073500104000000370> and it's multivariate extension MVMQ-CAViaR proposed y White et al. (2015) <https://doi.org/10.1016/j.jeconom.2015.02.004> are available, however, in further updates, other models and extensions will be included.
 
 ## Installation
 
@@ -35,7 +35,7 @@ install_github("ChJoCa/QuantileModels")
 
 Here there are some examples to the estimation of the models implemented by now.
 
-The first is the Symmetric absolute value and the Asymmetric Slope models from @engle2004. Of course, there are other spcifications, and all can be estimated for a given order of p autoregressive quantile and q order of lagged Y values.
+The first are the Symmetric absolute value and the Asymmetric Slope models from @engle2004. Of course, there are other specifications, and all can be estimated for a given order of p autoregressive quantile and q order of lagged Y values.
 
 ```{r example, fig.height=3.5}
 library(QuantileModels)

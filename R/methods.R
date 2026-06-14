@@ -1,7 +1,7 @@
 #' Plot CAViaR
 #'
 #' @param x `CAViaR_estim` class object.
-#' @param .by Frequency to diplay the dates in the plot, see [axis.Date].
+#' @param .by Frequency to display the dates in the plot, see [axis.Date].
 #' @param .format Format of the displayed dates in the plot, see [axis.Date].
 #' @param titl Optional title of the plot.
 #' @param ... other arguments to plot
@@ -24,7 +24,7 @@ plot.CAViaR_estim <- function(x,.by="month",.format="%b-%Y",titl="VaR",...){
 #' @param x `MVMQ_CAViaR` class object.
 #' @param rows Number of rows to display in the plot, passed to [par]
 #' @param columns Number of columns to display in the plot, passed to [par]
-#' @param .by Frequency to diplay the dates in the plot, see [axis.Date].
+#' @param .by Frequency to display the dates in the plot, see [axis.Date].
 #' @param .format Format of the displayed dates in the plot, see [axis.Date].
 #' @param titl Optional title of the plot.
 #' @param ... other arguments to plot
@@ -46,7 +46,7 @@ plot.MVMQ_CAViaR <- function(x,rows=2,columns=1,.by="month",.format="%b-%Y",titl
 
     }
 
-
+par(mfrow=c(1,1))
   }
 
 #' Summary CAViaR

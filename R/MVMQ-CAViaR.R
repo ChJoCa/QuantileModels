@@ -10,9 +10,9 @@
 #' @param quant.type One of the types available in [quantile]. This is used to initialize the quantile process.
 #' @param optim.config A list containing the optimization-related parameters, see [nloptr.print.options()] and `details` for more information.
 #' @param init.optim.config A list containing the univariate optimization-related parameters, see [nloptr.print.options()] for more information.
-#' @param global.estim Should the optimization be permormed in first place with global optimization with [GenSA::GenSA] in order to potentially achieve a better exploration of parameter space?
+#' @param global.estim Should the optimization be performed in first place with global optimization with [GenSA::GenSA] in order to potentially achieve a better exploration of parameter space?
 #' @param global.optim A list containing the global optimization-related parameters, see [GenSA::GenSA]  for more information.
-#' @param jac.options A list pased to \code{method.args} in [numDeriv::jacobian].
+#' @param jac.options A list passed to \code{method.args} in [numDeriv::jacobian].
 #' @importFrom quantreg bandwidth.rq
 #' @importFrom GenSA GenSA
 #' @importFrom nloptr nloptr
@@ -23,17 +23,18 @@
 #' @details
 #' This implementation follows in essence the same optimization strategy as White et al. (2015), by first obtaining for each series their univariate CAViaR estimation with [CAViaR], and setting the rest of the parameters to 0. As mentioned above, staring from those univariate estimates, this function offers two different optimization strategies: i) feed this starting point to a local optimizer (by default `NLOPT_LN_SBPLX`) following the original work, in such case the user should set `global.estim`=FALSE (the default); ii) feed this starting point to [GenSA::GenSA] in order perform a global optimization with the intention to explore the parameter space, and the result from this global phase is then used as starting point for the same procedure as i), then the user should set `global.estim`=TRUE.
 #'
-#' Regarding the specification, at the moment, only the symmetric absolute value specification is avaliable, having the following form:
+#' Regarding the specification, at the moment, only the symmetric absolute value specification is available, having the following form:
 #'  \deqn{\boldsymbol{f_t}(\boldsymbol{\theta}) = \boldsymbol{c} + \sum_{i=1}^p \boldsymbol{A_i} \boldsymbol{f_{t-i}(\boldsymbol{\theta})} + \sum_{j=1}^q \boldsymbol{B_j} |\boldsymbol{Y_{t-j}|}}
 #' @references White, H., Kim, T. H., & Manganelli, S. (2015). VAR for VaR: Measuring tail dependence using multivariate regression quantiles. Journal of econometrics, 187(1), 169-188.
 #' @export
 #' @examples
+#' \dontrun{
 #' Barclays <- MVMQ_CAViaR(MVMQ[,c(6,1)],tau =c(0.01,0.01),band.hs = TRUE)
 #' summary(Barclays)
 #' #or
 #' Barclays
 #' plot(Barclays,rows=2,columns=1)
-#'
+#' }
 
 MVMQ_CAViaR <- function(Y,p=1,q=1,tau=rep(0.05,ncol(Y)),band.hs=FALSE,jac.method="simple",jac.options=list(),sign.level=0.05,quant.type=7,
                    optim.config=list(),init.optim.config=list(),global.estim=FALSE,global.optim=list()){

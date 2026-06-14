@@ -55,7 +55,7 @@
 #' @details
 #'The main difference in this implementation is the optimization procedure used to estimate the parameters. The original paper begins with a grid search and alternates between the Nelder-Mead and quasi-Newton optimization algorithms until convergence. In this function, however, a global optimization algorithm is used: the Multilevel Single Linkage ("NLOPT_GN_MLSL_LDS"). At each iteration, the sampled points are quasi-deterministic, using Sobol's low discrepancy sequences. Thus, different optimization runs are much less dependent on the choice of random seed.
 #'
-#'As local optimizer, it is set by default to the `NELDER-MEAD`. However, other oprion is `SUBPLEX` which uses the `NELDER-MEAD` is subspaces, and is claimed to be more efficient and robust than the later. One can change this as described in the [nloptr::nloptr] function.
+#'As local optimizer, it is set by default to the `NELDER-MEAD`. However, other option is `SUBPLEX` which uses the `NELDER-MEAD` is subspaces, and is claimed to be more efficient and robust than the later. One can change this as described in the [nloptr::nloptr] function.
 #'
 #'An alternative to MLSL is the Improved Stochastic Ranking Evolution Strategy ("NLOPT_GN_ISRES"). However, this algorithm is much more dependent on the choice of the random seed. Although it is theoretically the case that it should return the same estimates among different runs, in practice, the user should be careful when choosing this algorithm. Furthermore, the standard errors are computed using the numerical Jacobian from `numDeriv`, and the bandwidth is computed as described in White et al. (2015).
 #' @returns A list containing different results from the estimation. Class `CAViaR_estim`.

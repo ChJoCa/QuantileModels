@@ -1,3 +1,4 @@
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # QuantileModels
@@ -6,7 +7,14 @@
 
 <!-- badges: end -->
 
-The goal of QuantileModels is to provide the proper tools for the estimation and inference of different quantile models, at the moment only Conditional autoregressive value at risk (CAViaR) model proposed by Engle & Manganelli (2004) <https://doi.org/10.1198/073500104000000370> and it’s multivariate extension MVMQ-CAViaR proposed y White et al. (2015) <https://doi.org/10.1016/j.jeconom.2015.02.004> are avalible, however, in further updates, other models and extensions will be included.
+The goal of QuantileModels is to provide the proper tools for the
+estimation and inference of different quantile models, at the moment
+only Conditional autoregressive value at risk (CAViaR) model proposed by
+Engle & Manganelli (2004) <https://doi.org/10.1198/073500104000000370>
+and it’s multivariate extension MVMQ-CAViaR proposed y White et
+al. (2015) <https://doi.org/10.1016/j.jeconom.2015.02.004> are
+available, however, in further updates, other models and extensions will
+be included.
 
 ## Installation
 
@@ -17,13 +25,15 @@ library(remotes)
 install_github("ChJoCa/QuantileModels")
 ```
 
-It should be noted that this package contains C++ code (RcppArmadillo), so to install it compilation must be done.
-
 ## Example
 
-Here there are some examples to the estimation of the models implemented by now.
+Here there are some examples to the estimation of the models implemented
+by now.
 
-The first is the Symmetric absolute value and the Asymmetric Slope models from Engle and Manganelli (2004). Of course, there are other spcifications, and all can be estimated for a given order of p autoregressive quantile and q order of lagged Y values.
+The first are the Symmetric absolute value and the Asymmetric Slope
+models from Engle and Manganelli (2004). Of course, there are other
+specifications, and all can be estimated for a given order of p
+autoregressive quantile and q order of lagged Y values.
 
 ``` r
 library(QuantileModels)
@@ -95,9 +105,10 @@ plot(-SAV$VaR,.by="quarter",ylim=c(1.5,10),main="SAV",main.timespan=FALSE)
 plot(-AS$VaR,.by="quarter",ylim=c(1.5,10),main="AS",main.timespan=FALSE)
 ```
 
-<img src="man/figures/README-example-1.png" width="100%"/>
+<img src="man/figures/README-example-1.png" alt="" width="100%" />
 
-The other model is it’s multivariate version proposed by White, Kim, and Manganelli (2015)
+The other model is it’s multivariate version proposed by White, Kim, and
+Manganelli (2015)
 
 ``` r
 Barclays <- MVMQ_CAViaR(MVMQ[,c(6,1)],tau =c(0.01,0.01),band.hs = TRUE)
@@ -155,10 +166,28 @@ axis.Date(side=1,at=seq(dates[1],dates[2765],by="year"),cex.axis=0.8,las=2)
 legend("topleft",legend = c("Daily Returns","1% VaR"),col = 2:1,pch = c("o","-"))
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%"/>
+<img src="man/figures/README-unnamed-chunk-2-1.png" alt="" width="100%" />
 
 # References
 
-Engle, Robert F, and Simone Manganelli. 2004. “CAViaR.” *Journal of Business & Economic Statistics* 22 (4): 367–81. <https://doi.org/10.1198/073500104000000370>.
+<div id="refs" class="references csl-bib-body hanging-indent"
+entry-spacing="0">
 
-White, Halbert, Tae-Hwan Kim, and Simone Manganelli. 2015. “VAR for VaR: Measuring Tail Dependence Using Multivariate Regression Quantiles.” *Journal of Econometrics* 187 (1): 169–88. <https://doi.org/10.1016/j.jeconom.2015.02.004>.
+<div id="ref-engle2004" class="csl-entry">
+
+Engle, Robert F, and Simone Manganelli. 2004. “CAViaR.” *Journal of
+Business & Economic Statistics* 22 (4): 367–81.
+<https://doi.org/10.1198/073500104000000370>.
+
+</div>
+
+<div id="ref-white2015" class="csl-entry">
+
+White, Halbert, Tae-Hwan Kim, and Simone Manganelli. 2015. “VAR for VaR:
+Measuring Tail Dependence Using Multivariate Regression Quantiles.”
+*Journal of Econometrics* 187 (1): 169–88.
+<https://doi.org/10.1016/j.jeconom.2015.02.004>.
+
+</div>
+
+</div>

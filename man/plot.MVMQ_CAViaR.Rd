@@ -21,7 +21,7 @@
 
 \item{columns}{Number of columns to display in the plot, passed to \link{par}}
 
-\item{.by}{Frequency to diplay the dates in the plot, see \link{axis.Date}.}
+\item{.by}{Frequency to display the dates in the plot, see \link{axis.Date}.}
 
 \item{.format}{Format of the displayed dates in the plot, see \link{axis.Date}.}
 
