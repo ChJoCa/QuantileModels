@@ -36,31 +36,23 @@ This package enables users to estimate the models proposed by @engle2004, as wel
 
 This package includes four different specifications, which are listed below:
 
--   Symmetric Absolute Value (SAV)
+- Symmetric Absolute Value (SAV)
 
-$$
-f_t(\theta) = \beta_0 + \sum_{i=1}^p \beta_i f_{t-i}(\theta) + \sum_{j=1}^q \gamma_j |y_{t-j}|
-$$
+$$f_t(\theta) = \beta_0 + \sum_{i=1}^p \beta_i f_{t-i}(\theta) + \sum_{j=1}^q \gamma_j |y_{t-j}|$$
 
--   Asymmetric slope (AS)
+- Asymmetric slope (AS)
 
-$$
-f_t(\theta) = \beta_0 + \sum_{i=1}^p \beta_i f_{t-i}(\theta) + \sum_{j=1}^q \left( \gamma_{1,j} (y_{t-j})^+ + \gamma_{2,j} (y_{t-j})^- \right)
-$$
+$$f_t(\theta) = \beta_0 + \sum_{i=1}^p \beta_i f_{t-i}(\theta) + \sum_{j=1}^q \left( \gamma_{1,j} (y_{t-j})^+ + \gamma_{2,j} (y_{t-j})^- \right)$$
 
 where ${(y_{t-j})^+ = \max(y_{t-j}, 0)}$ and $(y_{t-j})^- = \min(y_{t-j}, 0)$.
 
--   Indirect GARCH (INDGARCH)
+- Indirect GARCH (INDGARCH)
 
-$$
-f_t(\theta) = \left( \beta_0 + \sum_{i=1}^p \beta_i f_{t-i}^2(\theta) + \sum_{j=1}^q \gamma_j y_{t-j}^2 \right)^{1/2}
-$$
+$$f_t(\theta) = \left( \beta_0 + \sum_{i=1}^p \beta_i f_{t-i}^2(\theta) + \sum_{j=1}^q \gamma_j y_{t-j}^2 \right)^{1/2}$$
 
--   Improved CAViaR (I-CAV) [@huang2009]
+- Improved CAViaR (I-CAV) [@huang2009]
 
-$$
-f_t(\theta) = \beta_0 + \beta_1 f_{t-1}(\theta) + (1 - \beta_1)\left(\frac{\nu}{1-\gamma_1} I(y_{t-1} > 0)+ \frac{\nu}{\gamma_1} I(y_{t-1} \leq 0)\right) |y_{t-1} - u|
-$$
+$$f_t(\theta) = \beta_0 + \beta_1 f_{t-1}(\theta) + (1 - \beta_1)\left(\frac{\nu}{1-\gamma_1} I(y_{t-1} > 0)+ \frac{\nu}{\gamma_1} I(y_{t-1} \leq 0)\right) |y_{t-1} - u|$$
 
 where ${\nu = \sqrt{\gamma_1^2 + (1 - \gamma_1)^2}}$ ,$0<\gamma_1<1$ and $u$ is the sample mean.
 
@@ -149,9 +141,7 @@ plot(SAV,titl="GM Var at 5%")
 
 As well as the univariate model estimation, it is also possible to estimate its multivariate extension proposed by @white2015, which has the following specification:
 
-$$
-\boldsymbol{f_t}(\boldsymbol{\theta}) = \boldsymbol{c} + \sum_{i=1}^p \boldsymbol{A_i} \boldsymbol{f_{t-i}(\boldsymbol{\theta})} + \sum_{j=1}^q \boldsymbol{B_j} |\boldsymbol{Y_{t-j}|}
-$$
+$$\boldsymbol{f_t}(\boldsymbol{\theta}) = \boldsymbol{c} + \sum_{i=1}^p \boldsymbol{A_i} \boldsymbol{f_{t-i}(\boldsymbol{\theta})} + \sum_{j=1}^q \boldsymbol{B_j} |\boldsymbol{Y_{t-j}|}$$
 
 This model can be estimated using the MVMQ_CAViaR() function. Once again, using the data from @white2015, the goal is to reproduce Figure 1 and part of Table 3 (the results for Barclays and Goldman Sachs; the rest is left for the user to verify) as follows:
 
