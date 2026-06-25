@@ -15,6 +15,9 @@
 
 \item{...}{Other arguments passed to \link{print}.}
 }
+\value{
+No value returned
+}
 \description{
 Summary MVMQ_CAViaR
 }

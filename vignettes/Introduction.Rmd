@@ -56,7 +56,7 @@ $$f_t(\theta) = \beta_0 + \beta_1 f_{t-1}(\theta) + (1 - \beta_1)\left(\frac{\nu
 
 where ${\nu = \sqrt{\gamma_1^2 + (1 - \gamma_1)^2}}$ ,$0<\gamma_1<1$ and $u$ is the sample mean.
 
-The following section illustrates how to use the \code{CAViaR()} function to estimate this model. It does so using data from @engle2004 for the GM series at the 5% quantile.
+The following section illustrates how to use the `CAViaR()` function to estimate this model. It does so using data from @engle2004 for the GM series at the 5% quantile.
 
 ```{r message=FALSE}
 data=dataCAViaR
@@ -79,7 +79,7 @@ tau=0.05,refine.estim = FALSE)
 
 ```
 
-To see the results, use the \code{summary()} or \code{print()} functions. This will show you important information about the estimation process, the estimated coefficients, standard errors, p-values, and confidence intervals for the coefficients. It will also show you coverage tests for the value at risk.
+To see the results, use the `summary()` or `print()` functions. This will show you important information about the estimation process, the estimated coefficients, standard errors, p-values, and confidence intervals for the coefficients. It will also show you coverage tests for the value at risk.
 
 ```{r }
 summary(SAV)
@@ -116,13 +116,14 @@ Here are the results reported in @engle2004.
 In addition, we can visualize the conditional quantile process for GM and compare it with Figure 1 from the original paper.
 
 ```{r ,fig.width=9, fig.height=5.5, fig.cap= "GM VaR at 5% under different specifications"}
+graphic_opts <- par(no.readonly = TRUE)
 par(mfrow=c(2,2))
 
 plot(-SAV$VaR,.by="quarter",ylim=c(1.5,10),main="SAV",main.timespan=FALSE)
 plot(-AS$VaR,.by="quarter",ylim=c(1.5,10),main="AS",main.timespan=FALSE)
 plot(-INDGARCH$VaR,.by="quarter",ylim=c(1.5,10),main="INDGARCH",main.timespan=FALSE)
 plot(-I_CAV$VaR,.by="quarter",ylim=c(1.5,10),main="I-CAV",main.timespan=FALSE)
-par(mfrow=c(1,1))
+par(graphic_opts)
 ```
 
 Note that in this R package, the adaptive specification is not implemented; therefore, you should compare only panels a) through c) and ignore the I-CAV, as it is shown only for visualization and comparison with the other specifications[^2]. Furthermore, for all specifications, an order greater than 1 can be used for both the autoregressive quantile and the lagged value of the series, except for the I-CAV, which currently only allows for estimating I-CAV(1,1).
@@ -143,7 +144,7 @@ As well as the univariate model estimation, it is also possible to estimate its 
 
 $$\boldsymbol{f_t}(\boldsymbol{\theta}) = \boldsymbol{c} + \sum_{i=1}^p \boldsymbol{A_i} \boldsymbol{f_{t-i}(\boldsymbol{\theta})} + \sum_{j=1}^q \boldsymbol{B_j} |\boldsymbol{Y_{t-j}|}$$
 
-This model can be estimated using the MVMQ_CAViaR() function. Once again, using the data from @white2015, the goal is to reproduce Figure 1 and part of Table 3 (the results for Barclays and Goldman Sachs; the rest is left for the user to verify) as follows:
+This model can be estimated using the `MVMQ_CAViaR()` function. Once again, using the data from @white2015, the goal is to reproduce Figure 1 and part of Table 3 (the results for Barclays and Goldman Sachs; the rest is left for the user to verify) as follows:
 
 ```{r message=FALSE}
 Barclays <- MVMQ_CAViaR(MVMQ[,c(6,1)],tau =c(0.01,0.01),band.hs = TRUE)
@@ -155,7 +156,7 @@ HSBC <- MVMQ_CAViaR(MVMQ[,c(5,3)],tau =c(0.01,0.01),band.hs = TRUE)
 Deutsche <- MVMQ_CAViaR(MVMQ[,c(6,2)],tau =c(0.01,0.01),band.hs = TRUE)
 ```
 
-Using the \code{summary()} function
+Using the `summary()` function
 
 ```{r message=FALSE}
 summary(Barclays)
@@ -195,7 +196,7 @@ axis.Date(side=1,at=seq(dates[1],dates[2765],by="year"),cex.axis=0.8,las=2)
 legend("topleft",legend = c("Daily Returns","1% VaR"),col = 2:1,pch = c("o","-"))
 ```
 
-Of course, just as in the univariate case, the resulting object can also be plotted using \code{plot()}
+Of course, just as in the univariate case, the resulting object can also be plotted using `plot()`
 
 ```{r fig.width=8, fig.height=5}
 plot(Barclays,rows=2,columns=1)

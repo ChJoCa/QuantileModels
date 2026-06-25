@@ -28,7 +28,7 @@
 #' @references White, H., Kim, T. H., & Manganelli, S. (2015). VAR for VaR: Measuring tail dependence using multivariate regression quantiles. Journal of econometrics, 187(1), 169-188.
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' Barclays <- MVMQ_CAViaR(MVMQ[,c(6,1)],tau =c(0.01,0.01),band.hs = TRUE)
 #' summary(Barclays)
 #' #or
@@ -133,7 +133,7 @@ MVMQ_CAViaR <- function(Y,p=1,q=1,tau=rep(0.05,ncol(Y)),band.hs=FALSE,jac.method
   ce_te <- as.vector(ka_te*(qnorm(tau+bandwithd)-qnorm(tau-bandwithd)))
 
   matrices_Q_and_V <- array(0.0,dim = c(N+nsqr*p+nsqr*q,N+nsqr*p+nsqr*q,2),dimnames =list(NULL,NULL,c("V","Q") ))
-    message("Computing Standard Errors")
+    message("Calculating Standard Errors")
 
     for (i in 1:N) {
       jaco_n <-  jacobian(SAV_FILTER_for_jaco,estimacion$solution,lagged_abs_y=as.matrix(lagged_part),

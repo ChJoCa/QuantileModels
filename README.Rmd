@@ -3,8 +3,6 @@ output: github_document
 bibliography: references.bib
 ---
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -31,6 +29,8 @@ library(remotes)
 install_github("ChJoCa/QuantileModels")
 ```
 
+Or (**only Windows users)** if you don't want, or find difficult to install the proper tools to compile the source code, it's possible to download the windows binary `.zip` file from the Releases section.
+
 ## Example
 
 Here there are some examples to the estimation of the models implemented by now.
@@ -53,11 +53,13 @@ model.type = "AS",p=1,q=1,band.hs = TRUE,quant.type = 7,
 tau=0.05,refine.estim = FALSE)
 
 summary(AS)
-
+graphic_opts <- par(no.readonly = TRUE)
 par(mfrow=c(1,2))
 
 plot(-SAV$VaR,.by="quarter",ylim=c(1.5,10),main="SAV",main.timespan=FALSE)
 plot(-AS$VaR,.by="quarter",ylim=c(1.5,10),main="AS",main.timespan=FALSE)
+
+par(graphic_opts)
 ```
 
 The other model is it's multivariate version proposed by @white2015

@@ -7,6 +7,7 @@
 #' @param ... other arguments to plot
 #'
 #' @method plot CAViaR_estim
+#' @return No value returned
 #' @importFrom graphics axis.Date lines par
 #' @export
 plot.CAViaR_estim <- function(x,.by="month",.format="%b-%Y",titl="VaR",...){
@@ -31,8 +32,11 @@ plot.CAViaR_estim <- function(x,.by="month",.format="%b-%Y",titl="VaR",...){
 #'
 #' @method plot MVMQ_CAViaR
 #' @importFrom graphics axis.Date lines par
+#' @return No value returned
 #' @export
 plot.MVMQ_CAViaR <- function(x,rows=2,columns=1,.by="month",.format="%b-%Y",titl="VaR at ",...){
+  user_opts <- par(no.readonly = TRUE)
+  on.exit(par(user_opts))
   par(mfrow=c(rows,columns))
   fechas <- as.Date(zoo::index(x$data))
   ene <- length(fechas)
@@ -46,7 +50,6 @@ plot.MVMQ_CAViaR <- function(x,rows=2,columns=1,.by="month",.format="%b-%Y",titl
 
     }
 
-par(mfrow=c(1,1))
   }
 
 #' Summary CAViaR
@@ -58,6 +61,7 @@ par(mfrow=c(1,1))
 #'
 #' @method summary CAViaR_estim
 #' @importFrom ufRisk covtest
+#' @return No value returned
 #' @export
 summary.CAViaR_estim <- function(object,digits=5,conf.level=0.95,...){
   cat("CAViaR estimation \n")
@@ -92,6 +96,7 @@ summary.CAViaR_estim <- function(object,digits=5,conf.level=0.95,...){
 #'
 #' @method summary MVMQ_CAViaR
 #' @importFrom ufRisk covtest
+#' @return No value returned
 #' @export
 summary.MVMQ_CAViaR <- function(object,digits=5,conf.level=0.95,...){
   cat("MVMQ CAViaR estimation \n")
@@ -142,6 +147,7 @@ summary.MVMQ_CAViaR <- function(object,digits=5,conf.level=0.95,...){
 #'
 #' @method print MVMQ_CAViaR
 #' @importFrom ufRisk covtest
+#' @return No value returned
 #' @export
 print.MVMQ_CAViaR <- function(x,digits=5,conf.level=0.95,...){
   cat("MVMQ CAViaR estimation \n")
@@ -190,6 +196,7 @@ print.MVMQ_CAViaR <- function(x,digits=5,conf.level=0.95,...){
 #'
 #' @method print CAViaR_estim
 #' @importFrom ufRisk covtest
+#' @return No value returned
 #' @export
 print.CAViaR_estim <- function(x,digits=5,conf.level=0.95,...){
   cat("CAViaR estimation \n")

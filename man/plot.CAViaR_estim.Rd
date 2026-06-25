@@ -17,6 +17,9 @@
 
 \item{...}{other arguments to plot}
 }
+\value{
+No value returned
+}
 \description{
 Plot CAViaR
 }

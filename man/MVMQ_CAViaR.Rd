@@ -60,7 +60,7 @@ Regarding the specification, at the moment, only the symmetric absolute value sp
 \deqn{\boldsymbol{f_t}(\boldsymbol{\theta}) = \boldsymbol{c} + \sum_{i=1}^p \boldsymbol{A_i} \boldsymbol{f_{t-i}(\boldsymbol{\theta})} + \sum_{j=1}^q \boldsymbol{B_j} |\boldsymbol{Y_{t-j}|}}
 }
 \examples{
-\dontrun{
+\donttest{
 Barclays <- MVMQ_CAViaR(MVMQ[,c(6,1)],tau =c(0.01,0.01),band.hs = TRUE)
 summary(Barclays)
 #or

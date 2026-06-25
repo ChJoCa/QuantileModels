@@ -1,6 +1,4 @@
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
 # QuantileModels
 
 <!-- badges: start -->
@@ -24,6 +22,10 @@ You can install the development version of QuantileModels like so:
 library(remotes)
 install_github("ChJoCa/QuantileModels")
 ```
+
+Or (**only Windows users)** if you don’t want, or find difficult to
+install the proper tools to compile the source code, it’s possible to
+download the windows binary `.zip` file from the Releases section.
 
 ## Example
 
@@ -98,7 +100,7 @@ summary(AS)
 #> Kupiec conditional coverage test (LRcc), p-value: 0.64971 
 #> Christoffersen independence test (LRind), p-value: 0.35833 
 #> Christoffersen unconditional coverage test (LRuc), p-value: 0.89123
-
+graphic_opts <- par(no.readonly = TRUE)
 par(mfrow=c(1,2))
 
 plot(-SAV$VaR,.by="quarter",ylim=c(1.5,10),main="SAV",main.timespan=FALSE)
@@ -107,13 +109,18 @@ plot(-AS$VaR,.by="quarter",ylim=c(1.5,10),main="AS",main.timespan=FALSE)
 
 <img src="man/figures/README-example-1.png" alt="" width="100%" />
 
-The other model is it’s multivariate version proposed by White, Kim, and
-Manganelli (2015)
+``` r
+
+par(graphic_opts)
+```
+
+The other model is it’s multivariate version proposed by White et al.
+(2015)
 
 ``` r
 Barclays <- MVMQ_CAViaR(MVMQ[,c(6,1)],tau =c(0.01,0.01),band.hs = TRUE)
 #> Begining optimization
-#> Computing Standard Errors
+#> Calculating Standard Errors
 
 summary(Barclays)
 #> MVMQ CAViaR estimation 
@@ -170,8 +177,7 @@ legend("topleft",legend = c("Daily Returns","1% VaR"),col = 2:1,pch = c("o","-")
 
 # References
 
-<div id="refs" class="references csl-bib-body hanging-indent"
-entry-spacing="0">
+<div id="refs" class="references csl-bib-body hanging-indent">
 
 <div id="ref-engle2004" class="csl-entry">
 
