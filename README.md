@@ -3,6 +3,8 @@
 
 <!-- badges: start -->
 
+[![R-CMD-check](https://github.com/ChJoCa/QuantileModels/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ChJoCa/QuantileModels/actions/workflows/R-CMD-check.yaml)
+
 <!-- badges: end -->
 
 The goal of QuantileModels is to provide the proper tools for the
