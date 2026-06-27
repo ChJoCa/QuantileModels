@@ -29,7 +29,20 @@ install_github("ChJoCa/QuantileModels")
 
 Or (**only Windows users)** if you don’t want, or find difficult to
 install the proper tools to compile the source code, it’s possible to
-download the windows binary `.zip` file from the Releases section.
+download the windows binary `.zip` file from the Releases section. Or in
+the console:
+
+``` r
+install.packages("https://github.com/ChJoCa/QuantileModels/releases/download/v.1.0.0/QuantileModels_1.0.0.zip")
+```
+
+Furthermore, i will do my best to keep this repository organized and i
+would recommend to download the stable development version from the
+releases section as:
+
+``` r
+install_github("ChJoCa/QuantileModels@*release")
+```
 
 ## Example
 
