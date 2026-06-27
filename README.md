@@ -4,6 +4,8 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/ChJoCa/QuantileModels/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ChJoCa/QuantileModels/actions/workflows/R-CMD-check.yaml)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/QuantileModels)](https://CRAN.R-project.org/package=QuantileModels)
 
 <!-- badges: end -->
 
